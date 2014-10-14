@@ -10,6 +10,8 @@ sourcemaps     = require 'gulp-sourcemaps'
 browsersync    = require 'browser-sync'
 nodemon        = require 'nodemon'
 reload         = browsersync.reload
+gulpif         = require 'gulp-if'
+sprite         = require('css-sprite').stream
 
 # Get one .styl file and render
 gulp.task 'css', ->
@@ -17,6 +19,16 @@ gulp.task 'css', ->
   .pipe stylus(use: [nib(), jeet(), rupture()], compress: on, sourcemap: {inline: on, sourceRoot: '../../css'})
   .pipe gulp.dest('./public/styles')
   .pipe reload(stream: yes)
+
+gulp.task 'sprites', ->
+  gulp.src(['./assets/img/*.png','./assets/img/*.jpg'])
+  .pipe(sprite({
+    name: 'sprite',
+    style: '_sprite.styl',
+    cssPath: './img',
+    processor: 'stylus'
+  }))
+  .pipe(gulpif(['*.png','*.jpg'], gulp.dest('./public/img/'), gulp.dest('./public/styles/')))
 
 # Inline sourcemaps
 gulp.task 'sourcemaps-inline', ->

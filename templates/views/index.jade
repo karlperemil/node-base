@@ -7,6 +7,7 @@ block content
 
   .index
     .section
+      .cat
       if movie.length
         +movie(featured).is-thumbnail.is-featured
           .movie-feature-button(href='/movies/#{featured.slug}') → se hela filmen

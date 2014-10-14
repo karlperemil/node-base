@@ -22,6 +22,7 @@
     "rupture": "^0.4.0"
   },
   "devDependencies": {
+    "node-sprite": "^0.1.2"
   },
   "engines": {
     "node": ">=0.10.22",

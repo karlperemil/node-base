@@ -21,7 +21,7 @@ keystone.init({
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'jade',
-	'mongo': process.env.MONGOHQ_URL || 'mongodb://localhost/data/',
+	'mongo': process.env.MONGOHQ_URL || 'mongodb://localhost/node-base/',
 	'auto update': true,
 	'session': true,
 	'auth': true,
@@ -65,5 +65,15 @@ keystone.set('nav', {
 });
 
 // Start Keystone to connect to your database and initialise the web server
+
+//node-sprite
+
+var sprite = require('node-sprite');
+
+sprite.sprite('cats', {path: 'assets/img'}, function(err, globalSprite) {
+  console.log(globalSprite.filename())
+  console.log('cat1', globalSprite.image('cat1'));
+  console.log('cat2', globalSprite.image('cat2'));
+});
 
 keystone.start();

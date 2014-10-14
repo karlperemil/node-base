@@ -1,0 +1,54 @@
+.movie
+  position: relative
+  display: block
+  margin-bottom: 1em
+
+.movie-splash
+  rect(56.25%)
+  background-size: cover
+  margin-bottom: 0.5em
+
+.movie.is-thumbnail:hover
+  .movie-splash {opacity: 0.9}
+  text-decoration: none
+
+.movie.is-thumbnail
+  col(1/2, cycle: 2)
+  +below(2)
+    col(1/1, uncycle: 2)
+
+.movies.movie.is-thumbnail
+  +below(2)
+    col(1/1, uncycle: 2, cycle: 1)
+
+.movie.is-thumbnail.is-highlighted,
+.movie.is-thumbnail.is-featured
+  stack()
+
+.movie.is-thumbnail.is-featured
+  .movie-title {display: none}
+
+.movies.is-all .movie-title
+  @extends h2
+  line-height: 1.2em
+  padding-top: 0.3em
+
+.featured
+  font-size: 44px !important
+  line-height: 1em !important
+  +below(3)
+    font-size: 34px !important
+  +below(2)
+    font-size: 24px !important
+.movies.is-all.is-highlighted
+    font-size: 44px
+
+.playbutton
+  size: 50px
+  background-color: white
+  position: absolute
+  margin: auto
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0

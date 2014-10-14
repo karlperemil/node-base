@@ -1,0 +1,19 @@
+extends ../layouts/default
+include ../mixins/movie
+
+block content
+  if movie.length
+    .movies.is-all
+      .movies-highlight
+        +movie(movie.shift(),'big').is-thumbnail.is-highlighted
+          .playbuttons
+
+      .movies-small-container
+        each mov in movie
+          +movie(mov).is-thumbnail
+
+  else
+    h3 There are no movies yet.
+
+block js
+  script(src='/js/vimeo-playback.js')

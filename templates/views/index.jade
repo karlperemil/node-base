@@ -1,0 +1,22 @@
+extends ../layouts/default
+include ../mixins/movie
+
+block content
+  - var featured = _.findWhere(movie, {featured: true});
+  - movie = _.without(movie, featured);
+
+  .index
+    .section
+      +movie(featured).is-thumbnail.is-featured
+        .movie-feature-button(href='/movies/#{featured.slug}') → se hela filmen
+        h1.movie-feature-title Vi producerar kampanjfilm<br>och animation åt företag,<br> organisationer och föreningar.
+
+    .section.is-selected-work
+      h3.center Utvalda Filmer
+
+      .movies
+        each mov in movie
+          +movie(mov, [250, 145]).is-thumbnail
+
+block js
+  script(src='/js/index.js')

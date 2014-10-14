@@ -1,0 +1,37 @@
+@import 'nib'
+@import 'jeet'
+@import 'mixins'
+
+global-reset()
+wrapper()
+  center(site-width)
+
+@import 'fonts'
+@import 'variables'
+@import 'layout'
+@import 'typography'
+@import 'tags'
+@import 'utils'
+
+@import 'index'
+@import 'header'
+@import 'footer'
+@import 'contact'
+@import 'about'
+@import 'movie-single'
+@import 'movies'
+
+
+body
+  border-top: 2px solid black
+
+a
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit

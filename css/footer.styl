@@ -1,0 +1,38 @@
+.footer
+  margin-top: 5em
+
+  .footer-share
+    float: right
+    +below(1)
+      float: none
+      clear: both
+      padding-bottom: 3em
+
+  .footer-address
+    float: left
+    padding-bottom: 3em
+    +below(1)
+      padding-bottom: 1em
+
+  .footer-share-link
+    margin: 1em
+    &:hover
+      opacity:0.9
+
+  .footer-title
+    font-family: font-heading
+    font-size: 3em
+    line-height: 1em
+
+  .footer-logo
+    image: '/img/logo-old.png' 195px 60px
+    background-position: -22px 0
+    +retina()
+      image: '/img/logo@2x-old.png' 195px 60px
+      background-position: -22px 0
+
+.footer-content
+  padding-top: 1em
+  auto-margin()
+
+

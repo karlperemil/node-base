@@ -1,0 +1,35 @@
+extends ../layouts/default
+include ../mixins/movie
+
+block content
+  .movie-single
+      if !data.movie
+        h2 Invalid Post.
+      else
+        if data.movie.heroImage.exists
+          .movie-vimeo
+            .aspect-ratio
+              iframe(src='//player.vimeo.com/video/#{data.movie.vimeoid}' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen id='movie-vimeo')
+              //img(src=data.movie._.heroImage.limit(1600,900) width='100%')
+          .movie-info-wrapper
+            .movie-info
+              h1.movie-single-title= data.movie.title
+              if data.movie.client
+                h1.movie-single-client= data.movie.client.name
+              p= data.movie.description
+            .movie-subinfo
+              p ÅR #{data.movie.year}
+              p LJUD #{data.movie.sound}
+              a(href='http://www.facebook.com/sharer/sharer.php?http://www.reformstudios.se/movies/#{data.movie.slug}')
+                img(src='/img/share-facebook.png' width='32px')
+              a(href='https://twitter.com/share?url=http://www.reformstudios.se/movies/#{data.movie.slug}')
+                img(src='/img/share-twitter.png' width='32px')
+        if data.movies.length
+          .related-headline
+            h2 Våra Filmer
+          .movie-list
+            each mov in data.movies
+              +movie(mov, [250, 145]).is-thumbnail
+
+block js
+  script(src='/js/vimeo-playback.js')

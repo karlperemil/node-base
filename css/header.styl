@@ -1,0 +1,64 @@
+.header
+  background: #fff
+  color: #000
+  text-align: center
+  position: relative
+  padding: 1em
+
+.header-contact
+  absolute: left 1em top 1em
+  text-align: left
+  width: 30%
+  .header-contact-item
+    text-transform: uppercase
+    display: inline-block
+    margin-right: 2em
+    font-size: text-small
+    p
+      margin-bottom: 0
+  +between(0,3)
+    display: none
+  +desktop()
+    display: inherit
+
+.header-reformact
+  display: block
+  absolute: right 1em top 1em
+  font-size: text-small
+  +below(3)
+    display: none
+
+.header-title
+  image-replace()
+  image: '/img/logo.png' 363px 120px
+  +retina()
+    image: '/img/logo@2x.png' 363px 120px
+  margin: 0 auto 3em auto
+  cursor: pointer
+  +below(2)
+    image: '/img/logo.png' 254px 84px
+    +retina()
+      image: '/img/logo@2x.png' 254px 84px
+
+.header-nav
+  margin-top: 4em
+
+.header-nav-item
+  margin: 0 1em
+  display: inline-block
+  text-decoration: none
+  @extend h2
+  font-size: 12px
+  letter-spacing: 2px
+  &:hover
+    color: color-grey
+    text-decoration: none !important
+  +below(1)
+    display: block
+    margin:2em
+
+.header-nav-item:hover
+  text-decoration: underline
+
+.fatarrow
+  font-size: 14px

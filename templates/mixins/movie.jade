@@ -1,0 +1,13 @@
+mixin movie(mov, size)
+  - var dimension = [1600, 900]
+  if mov.heroImage
+    - var client = (mov.client ? mov.client.name : '');
+    - var splash = mov._.heroImage.limit(dimension[0], dimension[1]);
+
+    a.movie(href='/movies/#{mov.slug}', class!=attributes.class)
+      .movie-splash(style="background-image: url('#{ splash }');")
+      if size == 'big'
+        .movie-title.featured #{mov.title} <br> #[span.red=client]
+      else
+        .movie-title #{mov.title} <br> #[span.red=client]
+      block

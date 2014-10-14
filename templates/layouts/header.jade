@@ -1,0 +1,20 @@
+.header: .wrapper
+  h1.header-title(onclick="window.location.href='/'") Reform Studios
+
+  .header-contact
+    .header-contact-item
+      p
+        a(href='mailto:kontakt@reformstudios.se').caps kontakt@reformstudios.se
+    .header-contact-item
+      p.caps +46 709 26 55 27
+
+  .header-reformact
+    a.caps(href='http://www.reformact.se') Reform Act →
+
+  .header-nav
+    each link in navLinks
+      - var className = (section == link.key ? 'is-active' : null);
+      a.header-nav-item(class=className, href=link.href)= link.label
+
+    if user && user.canAccessKeystone
+      a.header-nav-item(href='/keystone/signin', target='_blank') ☻ Admin ☻

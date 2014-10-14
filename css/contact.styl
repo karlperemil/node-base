@@ -1,0 +1,79 @@
+.contact
+  .contact-action-wrapper
+    text-align: center
+
+    .contact-block
+      margin: 3em
+      col(1/3)
+      line-height: 1.5em
+      p
+        line-height: .7em
+      a
+        line-height: .7em
+      h4
+        margin-bottom: .5em
+      +below(2)
+        stack()
+
+      .icon
+        center()
+        margin-bottom: 0.8em
+
+      .icon.mail
+        image: '/img/icon-mail.png' 117px 80px
+        +retina()
+          image: '/img/icon-mail@2x.png' 117px 80px
+
+      .icon.phone
+        image: '/img/icon-phone.png' 117px 80px
+        +retina()
+          image: '/img/icon-phone@2x.png' 117px 80px
+
+      .icon.coffee
+        image: '/img/icon-coffee.png' 117px 80px
+        +retina()
+          image: '/img/icon-coffee@2x.png' 117px 80px
+
+      .contact-block-action
+        font-size: text-small
+
+  .contact-employees
+    text-align: center
+
+    .contact-employee-row
+      display: inline-block
+      vertical-align: top
+
+      .contact-employee
+        margin: 3em
+        display: inline-block
+        vertical-align: top
+        +below(1)
+          margin: .5em
+          margin-bottom: 2em
+
+      +below(1)
+        margin-bottom: 3em
+
+  .contact-map
+    position: relative
+
+    .contact-map-label
+      background-color: white
+      position: absolute
+      left: 0
+      top: 104px
+      z-index: 5
+      h1
+        margin: 0 0.2em 0 0
+      +below(1)
+        position: relative
+        left: auto
+        top: auto
+        h1
+          font-size: 1em
+          text-align: center
+
+    #map-canvas
+      width: 100%
+      height: 350px

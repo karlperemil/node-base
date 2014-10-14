@@ -1,0 +1,41 @@
+include ../mixins/flash-messages
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+		title= title || 'Reform Studios'
+		link(rel="icon" type="image/png" href="/img/favicon.png")
+
+		link(href="/styles/app.css", rel="stylesheet")
+		if user && user.canAccessKeystone
+			link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+		//-[if lt IE 9]
+			script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
+			script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
+		//-[endif]
+
+		block css
+
+		block head
+
+	body
+		include header
+
+		+flash-messages(messages)
+
+		.page.wrapper
+			block content
+
+		include footer
+
+		script(src='/js/lib/jquery/jquery-2.1.1.min.js')
+		script(src='/js/index.js')
+		if user && user.canAccessKeystone
+			script(src='/keystone/js/content/editor.js')
+
+		block js

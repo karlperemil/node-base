@@ -1,0 +1,59 @@
+extends ../layouts/default
+block content
+  .contact
+    .contact-action-wrapper
+      .contact-block
+        .icon.mail
+        h4.contact-block-action Skicka ett mail
+        a(href='mailto:kontakt@reformstudios.se') kontakt@reformstudios.se
+
+      .contact-block
+        .icon.phone
+        h4.contact-block-action Ring
+        p 070-926 55 27
+
+      .contact-block
+        .icon.coffee
+        h4.contact-block-action Kom på besök
+        p Kungsgatan 43
+        p 111 35 Stockholm
+
+    .contact-employees
+      .contact-employee-row
+        .contact-employee
+          img(src='/img/employees/birgitta.jpg' width='180px')
+          h3 Birgitta Pagot
+          p VD
+          p 070-422 27 11
+          a(href='mailto:birgitta.pagot@reformact.se') birgitta.pagot@reformact.se
+
+      .contact-employee-row
+        .contact-employee
+          img(src='/img/employees/martin.jpg' width='180px')
+          h3 Martin Löfqvist
+          p KAMPANJFILMSANSVARIG
+          p 070-926 55 27
+          a(href='mailto:martin.lofqvist@reformact.se') martin.lofqvist@reformact.se
+
+        .contact-employee
+          img(src='/img/employees/jacob.jpg' width='180px')
+          h3 Jacob Åström
+          p VICE VD OCH KREATIV CHEF
+          p 070-816 98 51
+          a(href='mailto:jacob.astrom@reformact.se') jacob.astrom@reformact.se
+
+        .contact-employee
+          img(src='/img/employees/linus.jpg' width='180px' height='180px')
+          h3 Linus Nyström
+          p ILLUSTRATÖR
+          p 070-727 53 80
+          a(href='mailto:linus.nystrom@reformstudios.se ' width='180px') linus.nystrom@reformstudios.se 
+
+    .contact-map
+      .contact-map-label
+        h1
+          | REFORM STUDIOS<br>KUNGSGATAN 42<br>11342 STOCKHOLM
+      #map-canvas
+
+block js
+  script(src='js/contact.js' type='text/javascript')

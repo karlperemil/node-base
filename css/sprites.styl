@@ -1,0 +1,43 @@
+$person2 = -5px -5px 5px 10px
+$person = -5px -25px 10px 20px
+$share-twitter = -5px -55px 64px 64px
+$facebook = -5px -129px 64px 64px
+$share-facebook = -5px -203px 64px 64px
+$instagram = -5px -277px 64px 64px
+$logo-old = -5px -351px 286px 80px
+$icon-phone = -5px -441px 117px 80px
+$icon-mail = -5px -531px 117px 80px
+$icon-coffee = -5px -621px 117px 80px
+$logo = -5px -711px 363px 120px
+$favicon = -5px -841px 128px 128px
+$cats-cat4 = -5px -979px 256px 256px
+$employees-linus = -5px -1245px 500px 426px
+$cats-cat3 = -5px -1681px 600px 445px
+$cats-cat5 = -5px -2136px 450px 450px
+$employees-jacob = -5px -2596px 481px 482px
+$employees-birgitta = -5px -3088px 629px 607px
+$employees-martin = -5px -3705px 612px 612px
+$cats-cat2 = -5px -4327px 1280px 800px
+$employees-jacob = -5px -5137px 1202px 1204px
+$cats-cat1 = -5px -6351px 1536px 1536px
+
+sprite-width($sprite)
+  width $sprite[2]
+
+sprite-height($sprite)
+  height $sprite[3]
+
+sprite-position($sprite)
+  background-position $sprite[0]  $sprite[1]
+
+sprite($sprite)
+  sprite-position($sprite)
+  background-repeat no-repeat
+  overflow hidden
+  display block
+  sprite-width($sprite)
+  sprite-height($sprite)
+
+.icon
+  background-image url('../img/sprites.png')
+

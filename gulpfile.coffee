@@ -13,6 +13,16 @@ reload         = browsersync.reload
 gulpif         = require 'gulp-if'
 sprite         = require('css-sprite').stream
 
+gulp.task 'sprites', ->
+  gulp.src(['./assets/img/**/*.png','./assets/img/**/*.jpg'])
+  .pipe(sprite({
+    name: 'sprites',
+    style: 'sprites.styl',
+    cssPath: '../img',
+    processor: 'stylus'
+  }))
+  .pipe(gulpif(['*.png','*.jpg'], gulp.dest('./public/img/'), gulp.dest('./css/')))
+
 # Get one .styl file and render
 gulp.task 'css', ->
   gulp.src('./css/app.styl')
@@ -20,15 +30,7 @@ gulp.task 'css', ->
   .pipe gulp.dest('./public/styles')
   .pipe reload(stream: yes)
 
-gulp.task 'sprites', ->
-  gulp.src(['./assets/img/*.png','./assets/img/*.jpg'])
-  .pipe(sprite({
-    name: 'sprite',
-    style: '_sprite.styl',
-    cssPath: './img',
-    processor: 'stylus'
-  }))
-  .pipe(gulpif(['*.png','*.jpg'], gulp.dest('./public/img/'), gulp.dest('./public/styles/')))
+
 
 # Inline sourcemaps
 gulp.task 'sourcemaps-inline', ->
@@ -59,7 +61,7 @@ gulp.task 'sourcemaps-external', ->
 
 # Default gulp task to run
 gulp.task 'default', ['stylus', 'watch', 'assets', 'server']
-gulp.task 'stylus',  ['css', 'sourcemaps-inline', 'sourcemaps-external']
+gulp.task 'stylus',  ['sprites','css', 'sourcemaps-inline', 'sourcemaps-external']
 gulp.task 'watch',   ['watchTemplates', 'watchAssets', 'watchStylus']
 gulp.task 'nosync',  ['stylus', 'watch', 'assets']
 gulp.task 'build', ['stylus','assets']

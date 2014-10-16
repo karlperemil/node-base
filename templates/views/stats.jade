@@ -1,0 +1,50 @@
+extends ../layouts/default
+include ../mixins/movie
+
+block content
+  - var stats = data.stats
+  if stats
+    .section
+      h1 #{stats.projectName}
+      h2 #{stats.client.name}
+      h3 Period:
+      p #{stats.startDate} <-> #{stats.endDate}
+    .section.relative
+      h3 Sidvisningar:
+      p #{stats.pageviews}
+      - var boxes = Math.round(stats.pageviews/100)
+      - for(var i = 0; i < boxes; i++){
+        .people
+      - }
+    .section
+      h3 Unika besökare
+      p #{stats.uniques}
+      h3 Genomsnittstid på siten
+      p #{stats.averagetime}
+      h3 Signups
+      p #{stats.signups}
+      h3 Mål
+      p #{stats.goal}
+      h3 Konverteringsratio
+      p #{stats.conversionrate}%
+      h3 Trafik
+      p #{traffic}
+      h2 Devices
+      h3 Mobilt
+      p #{stats.deviceMobile}%
+      h3 Tablet
+      p #{stats.deviceTablet}%
+      h3 Desktop
+      p #{stats.deviceDesktop}%
+      h2 Kön
+      h3 Män
+      p #{stats.sexm}
+      h3 Kvinnor
+      p #{stats.sexf}
+      h2 Återvändade användare
+    p #{stats.returningUsers}
+  else
+    h3 Invalid client or project
+
+block js
+  script(src='/js/vimeo-playback.js')

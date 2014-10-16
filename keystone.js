@@ -61,19 +61,10 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'Kunder': 'Client',
-	'Filmer': 'movies'
+	'Filmer': 'movies',
+	'Statistik' : 'stats'
 });
 
 // Start Keystone to connect to your database and initialise the web server
-
-//node-sprite
-
-var sprite = require('node-sprite');
-
-sprite.sprite('cats', {path: 'assets/img'}, function(err, globalSprite) {
-  console.log(globalSprite.filename())
-  console.log('cat1', globalSprite.image('cat1'));
-  console.log('cat2', globalSprite.image('cat2'));
-});
 
 keystone.start();
